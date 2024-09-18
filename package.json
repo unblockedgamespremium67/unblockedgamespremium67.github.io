@@ -12,8 +12,7 @@
     "format:no-path": "pnpm lint:no-path --fix",
     "lint": "eslint .",
     "lint:no-path": "eslint",
-    "start": "next start -p ${PORT:=3000}",
-    "prepare": "husky install"
+    "start": "next start -p ${PORT:=3000}"
   },
   "lint-staged": {
     "**/*.js": "pnpm format:no-path",
