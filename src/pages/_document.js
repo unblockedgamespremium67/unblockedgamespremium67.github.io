@@ -43,9 +43,9 @@ export default class MyDocument extends Document {
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-PHD37JG2C4"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         />
-        <Script id="gtm" strategy="beforeInteractive">
+        <Script id="gtm" strategy="afterInteractive">
           {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
@@ -55,7 +55,7 @@ export default class MyDocument extends Document {
               `}
         </Script>
 
-        <Script id="livecounter" strategy="beforeInteractive">
+        <Script id="livecounter" strategy="afterInteractive">
           {`
               (function(d,s){d.getElementById("licntE007").src="https://counter.yadro.ru/hit?t44.18;r"+escape(d.referrer)+((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+(s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)
             `}
