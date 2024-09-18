@@ -132,7 +132,7 @@ export default function Home({ page, posts, pagination, topPosts }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const { page } = await getPageByUri('homepage');
 
   if (!page) {
