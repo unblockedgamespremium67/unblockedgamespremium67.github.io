@@ -1,0 +1,28 @@
+.PrivacyBox {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 22;
+  background: var(--app-border-gradient);
+  max-width: 520px;
+  padding: 1px;
+}
+
+.PrivacyBoxInner {
+  background-color: var(--app-bg);
+  padding: 1rem 1.5rem;
+  font-size: 0.725rem;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.5rem;
+
+  p {
+    margin: 0;
+  }
+}
+
+.PrivacyBoxLinks {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1rem;
+}

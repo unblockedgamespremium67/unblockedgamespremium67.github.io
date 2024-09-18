@@ -1,0 +1,60 @@
+@import "styles/settings/__settings";
+
+.postCard {
+  position: relative;
+  color: inherit;
+  text-align: left;
+  text-decoration: none;
+  background: var(--app-border-gradient);
+  background-size: 100%;
+  transition: background-size 1s ease 0s, opacity 500ms ease 0s;
+  padding: 1px;
+  height: 100%;
+
+  &Inner {
+    background-color: var(--app-bg);
+    height: 100%;
+  }
+
+  &Title {
+    margin: 0;
+    font-family: $font-family-headings;
+    font-size: 0.675rem;
+    font-weight: 300;
+    color: var(--app-color-link);
+    text-transform: uppercase;
+  }
+
+  &Metadata {
+    margin: -0.8em -0.8em 0.4em;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    color: var(--app-color-link);
+    text-decoration: none;
+    padding: 0 0.5rem 0.5rem;
+
+    h3 {
+      transition: 0.5s ease-in-out;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    &:hover {
+      h3 {
+        color: var(--app-color-accent);
+      }
+    }
+  }
+
+  &:hover {
+    background-size: 200%;
+  }
+}

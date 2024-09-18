@@ -1,0 +1,94 @@
+@import "styles/settings/__settings";
+@import "style.css";
+@import "global";
+
+:root{
+  --app-bg: #121418;
+  --app-bg-default: #282c34;
+  --app-bg-dark: #141520;
+  --app-color-link: #ffccf8;
+  --app-color-border-dark: #423b63;
+  --app-color-accent: #faa71b;
+  --app-color-primary: #8C73B4;
+  --app-color-primary-light: #d0c5e2;
+  --app-color-primary-dark: #573f7e;
+  --app-color-headings: #fff;
+  --app-color-text: #e0dbf5;
+  --app-color-text-inverse: #000;
+  --app-border-gradient: linear-gradient(to right, rgba(50, 94, 255, 0.5), rgba(12, 42, 147, 0.5), rgba(255, 164, 152, 0.5));
+}
+
+.light:root {
+  --app-bg: #fff;
+  --app-bg-default: #282c34;
+  --app-bg-dark: #f7f7f7;
+  --app-color-link: #ffccf8;
+  --app-color-border-dark: rgba(227,232,237,1.00);
+  --app-color-accent: #faa71b;
+  --app-color-primary: #8C73B4;
+  --app-color-primary-light: #d0c5e2;
+  --app-color-primary-dark: #573f7e;
+  --app-color-text: #473f65;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: $font-family-default;
+  color: var(--app-color-text);
+}
+
+body {
+  background-color: var(--app-bg-dark);
+  background: #000000; background-image: radial-gradient(at 17.0% 26.0%, hsl(259, 77%, 28%) 0px, transparent 50%),radial-gradient(at 21.0% 65.0%, #000a5f 0px, transparent 50%),radial-gradient(at 0.2% 5.8%, #903847 0px, transparent 50%),radial-gradient(at 61.0% 43.0%, #191c6b 0px, transparent 50%),radial-gradient(at 36.0% 72.0%, #753da5 0px, transparent 50%)
+}
+
+p {
+  line-height: 1.6;
+  margin: 1.2em 0;
+}
+
+ul {
+  padding-left: 1.2em;
+}
+
+a:not[class] {
+  color: var(--app-color-link);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+input {
+  &[type="text"],
+  &[type="search"],
+  &[type="email"] {
+    outline-offset: 0;
+    padding: 0.5em 0.8em;
+  }
+}
+
+figcaption {
+  color: $color-gray-500;
+  font-size: 0.9em;
+  text-align: center;
+  font-style: italic;
+  margin-top: 0.6em;
+}
+
+.sr-only {
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  width: 0;
+  height: 0;
+}
