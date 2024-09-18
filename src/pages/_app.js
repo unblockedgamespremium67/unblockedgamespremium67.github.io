@@ -66,18 +66,17 @@ function App({ Component, pageProps = {}, metadata, recentPosts, categories, men
 
           <Script id="gtm" strategy="afterInteractive">
             {`
-              (function(d,s){d.getElementById("licntE007").src=
-"https://counter.yadro.ru/hit?t44.18;r"+escape(d.referrer)+
-((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
-(s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
-";h"+escape(d.title.substring(0,150))+";"+Math.random()})
-(document,screen)
-              `}
+              (function(d,s){d.getElementById("licntE007").src="https://counter.yadro.ru/hit?t44.18;r"+escape(d.referrer)+((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+(s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)
+            `}
           </Script>
           <Link
             href="https://www.liveinternet.ru/click"
             target={'_blank'}
-            style="position:absolute;z-index:-100;transform:translate(-100%);"
+            style={{
+              position: "absolute",
+              zIndex: "-100",
+              transform: "translate(-100%)",
+            }}
           >
             <Image
               id={'licntE007'}
