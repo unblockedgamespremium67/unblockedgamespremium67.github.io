@@ -14,18 +14,20 @@ import { getAllMenus } from 'lib/menus';
 import 'styles/globals.scss';
 import 'styles/wordpress.scss';
 import variables from 'styles/_variables.module.scss';
-import {GoogleTagManager} from '@next/third-parties/google';
+import Script from 'next/script';
 import { useState } from 'react';
 import { ApolloProvider } from "@apollo/client";
 import { getApolloClient } from 'lib/apollo-client';
 import PrivacyBox from 'components/PrivacyBox';
+import Link from 'next/link';
+import Image from 'next/image';
 
 function App({ Component, pageProps = {}, metadata, recentPosts, categories, menus, sidePosts }) {
   const [isNavOpen, setisNavOpen] = useState();
   const [isPrivacyOpen = true, setisPrivacyOpen] = useState();
   const apolloClient = getApolloClient();
 
-  function toggleNav() { 
+  function toggleNav() {
     setisNavOpen(!isNavOpen);
   }
 
@@ -50,8 +52,42 @@ function App({ Component, pageProps = {}, metadata, recentPosts, categories, men
           <Head>
             <meta name="google-site-verification" content="zVS51G9qsrXjF_p5P-xZD1xC1HtpsPypwR0o1pqtXkU" />
           </Head>
+          <Script async src="https://www.googletagmanager.com/gtag/js?id=G-PHD37JG2C4" />
+          <Script id="gtm" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-PHD37JG2C4');
+              `}
+          </Script>
           <Component {...pageProps} />
-          <GoogleTagManager gtmId="G-PHD37JG2C4" />
+
+          <Script id="gtm" strategy="afterInteractive">
+            {`
+              (function(d,s){d.getElementById("licntE007").src=
+"https://counter.yadro.ru/hit?t44.18;r"+escape(d.referrer)+
+((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+(s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+";h"+escape(d.title.substring(0,150))+";"+Math.random()})
+(document,screen)
+              `}
+          </Script>
+          <Link
+            href="https://www.liveinternet.ru/click"
+            target={'_blank'}
+            style="position:absolute;z-index:-100;transform:translate(-100%);"
+          >
+            <Image
+              id={'licntE007'}
+              priority
+              src={'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7'}
+              alt="alt"
+              width="31"
+              height="31"
+            />
+          </Link>
 
           {isPrivacyOpen && <PrivacyBox />}
         </SearchProvider>
@@ -68,7 +104,7 @@ App.getInitialProps = async function (appContext) {
     queryIncludes: 'archive',
   });
 
-  const {sidePosts} = await getSidePosts();
+  const { sidePosts } = await getSidePosts();
 
   const { categories } = await getCategories({
     count: 5,
