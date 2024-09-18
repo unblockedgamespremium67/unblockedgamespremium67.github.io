@@ -52,6 +52,8 @@ function App({ Component, pageProps = {}, metadata, recentPosts, categories, men
           <Head>
             <meta name="google-site-verification" content="zVS51G9qsrXjF_p5P-xZD1xC1HtpsPypwR0o1pqtXkU" />
           </Head>
+          <Component {...pageProps} />
+
           <Script async src="https://www.googletagmanager.com/gtag/js?id=G-PHD37JG2C4" />
           <Script id="gtm" strategy="afterInteractive">
             {`
@@ -62,9 +64,8 @@ function App({ Component, pageProps = {}, metadata, recentPosts, categories, men
               gtag('config', 'G-PHD37JG2C4');
               `}
           </Script>
-          <Component {...pageProps} />
 
-          <Script id="gtm" strategy="afterInteractive">
+          <Script id="livecounter" strategy="afterInteractive">
             {`
               (function(d,s){d.getElementById("licntE007").src="https://counter.yadro.ru/hit?t44.18;r"+escape(d.referrer)+((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+(s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)
             `}
