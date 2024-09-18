@@ -1,4 +1,5 @@
 import NextApp from 'next/app';
+import Head from 'next/head';
 
 import { SiteContext, useSiteContext } from 'hooks/use-site';
 import { SearchProvider } from 'hooks/use-search';
@@ -13,6 +14,7 @@ import { getAllMenus } from 'lib/menus';
 import 'styles/globals.scss';
 import 'styles/wordpress.scss';
 import variables from 'styles/_variables.module.scss';
+import {GoogleTagManager} from '@next/third-parties/google';
 import { useState } from 'react';
 import { ApolloProvider } from "@apollo/client";
 import { getApolloClient } from 'lib/apollo-client';
@@ -45,11 +47,13 @@ function App({ Component, pageProps = {}, metadata, recentPosts, categories, men
       <SiteContext.Provider value={site}>
         <SearchProvider>
           <NextNProgress height={4} color={variables.progressbarColor} />
+          <Head>
+            <GoogleTagManager gtmId="G-PHD37JG2C4" />
+            <meta name="google-site-verification" content="zVS51G9qsrXjF_p5P-xZD1xC1HtpsPypwR0o1pqtXkU" />
+          </Head>
           <Component {...pageProps} />
 
-          {isPrivacyOpen && (
-            <PrivacyBox />
-          )}
+          {isPrivacyOpen && <PrivacyBox />}
         </SearchProvider>
       </SiteContext.Provider>
     </ApolloProvider>
