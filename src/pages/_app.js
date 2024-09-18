@@ -48,10 +48,10 @@ function App({ Component, pageProps = {}, metadata, recentPosts, categories, men
         <SearchProvider>
           <NextNProgress height={4} color={variables.progressbarColor} />
           <Head>
-            <GoogleTagManager gtmId="G-PHD37JG2C4" />
             <meta name="google-site-verification" content="zVS51G9qsrXjF_p5P-xZD1xC1HtpsPypwR0o1pqtXkU" />
           </Head>
           <Component {...pageProps} />
+          <GoogleTagManager gtmId="G-PHD37JG2C4" />
 
           {isPrivacyOpen && <PrivacyBox />}
         </SearchProvider>
