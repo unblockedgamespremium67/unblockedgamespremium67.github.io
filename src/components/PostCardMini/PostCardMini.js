@@ -4,7 +4,7 @@ import { postPathBySlug } from 'lib/posts';
 
 import FeaturedImage from 'components/FeaturedImage';
 
-import { FaMapPin, FaStar, FaStarHalfAlt } from 'react-icons/fa';
+import { FaMapPin } from 'react-icons/fa';
 import styles from './PostCardMini.module.scss';
 
 const PostCardMini = ({ post, options = {} }) => {

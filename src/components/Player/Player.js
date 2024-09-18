@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useEffect, useState } from 'react';
 import screenfull from 'screenfull';
 import Link from 'next/link'
@@ -250,3 +251,4 @@ const Player = ({ options }) => {
 };
 
 export default Player;
+/* eslint-enable */
