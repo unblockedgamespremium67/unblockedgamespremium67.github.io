@@ -41,11 +41,21 @@ export default class MyDocument extends Document {
           {this.helmetHeadComponents}
         </Head>
         <Script
+          id="gtm"
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-PHD37JG2C4"
           strategy="afterInteractive"
+          onLoad={() => {
+            console.log('gtm loaded')
+          }}
         />
-        <Script id="gtm" strategy="afterInteractive">
+        <Script
+          id="gtmCounter"
+          strategy="afterInteractive"
+          onLoad={() => {
+            console.log('gtm loaded')
+          }}
+        >
           {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
