@@ -5,14 +5,14 @@ const sitemap = require('./plugins/sitemap');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // output: 'export',
+  output: 'export',
   images: {
       unoptimized: true,
   },
   // basePath: '/ssgtest',
   // assetPrefix: '/ssgtest/', // assetPrefix requires the trailing slash
   // publicRuntimeConfig: {
-  //   basePath: "/ssgtest",
+  //    basePath: "/ssgtest",
   // },
   reactStrictMode: false,
   swcMinify: true,
@@ -54,9 +54,9 @@ module.exports = () => {
  * @description Helper function to check if a variable is defined and parse booelans
  */
 
-function parseEnvValue(value, defaultValue) {
-  if (typeof value === 'undefined') return defaultValue;
-  if (value === true || value === 'true') return true;
-  if (value === false || value === 'false') return false;
-  return value;
-}
+// function parseEnvValue(value, defaultValue) {
+//   if (typeof value === 'undefined') return defaultValue;
+//   if (value === true || value === 'true') return true;
+//   if (value === false || value === 'false') return false;
+//   return value;
+// }
