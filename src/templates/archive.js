@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { Helmet } from 'react-helmet';
 
 import { WebpageJsonLd } from 'lib/json-ld';
@@ -34,13 +35,23 @@ export default function TemplateArchive({
     metadata.twitter.title = metadata.title;
   }
 
+  console.log(metadata);
+
   const helmetSettings = {
     titleTemplate: process.env.WORDPRESS_PLUGIN_SEO === true ? '%s' : `%s - ${metadata.title}`,
     ...helmetSettingsFromMetadata(metadata)
   };
 
+  const isServer = typeof window === 'undefined' ? true : false;
+
   return (
     <Layout>
+      {!isServer && (
+        <Head>
+          <title>{helmetSettings.title}</title>
+        </Head>
+      )}
+
       <Helmet {...helmetSettings} />
 
       <WebpageJsonLd title={title} description={metadata.description} siteTitle={siteMetadata.title} slug={slug} />
