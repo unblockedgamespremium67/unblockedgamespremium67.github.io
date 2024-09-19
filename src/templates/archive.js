@@ -35,8 +35,6 @@ export default function TemplateArchive({
     metadata.twitter.title = metadata.title;
   }
 
-  console.log(metadata);
-
   const helmetSettings = {
     titleTemplate: process.env.WORDPRESS_PLUGIN_SEO === true ? '%s' : `%s - ${metadata.title}`,
     ...helmetSettingsFromMetadata(metadata)
