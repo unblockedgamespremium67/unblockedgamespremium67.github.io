@@ -18,6 +18,7 @@ import homeImage from "/public/images/home.webp";
 
 import styles from 'styles/pages/Home.module.scss';
 import SectionTitle from 'components/SectionTitle';
+import {replaceUrlInContent} from "../lib/util";
 
 export default function Home({ page, posts, pagination, topPosts }) {
   // const { title, description } = metadata;
@@ -121,7 +122,7 @@ export default function Home({ page, posts, pagination, topPosts }) {
               <div
                 className={styles.content}
                 dangerouslySetInnerHTML={{
-                  __html: content,
+                  __html: replaceUrlInContent(content),
                 }}
               />
           </Content>

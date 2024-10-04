@@ -1,3 +1,5 @@
+import appConfig from "lib/appConfig";
+
 /**
  * decodeHtmlEntities
  */
@@ -30,4 +32,15 @@ export function removeLastTrailingSlash(url) {
 export function removeExtraSpaces(text) {
   if (typeof text !== 'string') return;
   return text.replace(/\s+/g, ' ').trim();
+}
+
+export function replaceUrlInContent(text = undefined) {
+
+  if (text !== undefined && text !== null) {
+    for (let i = 0; i < appConfig.wpDomain.length; i++) {
+      text = text.replace(new RegExp(appConfig.wpDomain[i], 'g'), appConfig.nextDomain)
+    }
+  }
+
+  return text;
 }
